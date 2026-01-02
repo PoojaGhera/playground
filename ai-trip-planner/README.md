@@ -35,7 +35,7 @@ Code snippet
 cat > .env.local << 'EOF' 
 NEXT_PUBLIC_OPENAI_API_KEY= "YOUR KEY"
 NEXT_PUBLIC_GEMINI_API_KEY="YOUR KEY"
-ANTHROPIC_API_KEY="YOUR KEY"
+ANTHROPIC_API_KEY="YOUR KEY" EOF
 
 **4. Run the App**
 Start the development server:
