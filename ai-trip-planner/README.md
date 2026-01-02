@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**AI Trip Planner: Multi-LLM Comparison Project**
+This project is a web-based AI Trip Planner designed to explore and compare the capabilities of the three major AI providers. The goal was to build a unified interface that interacts with different LLMs while tracking performance metrics.
 
-## Getting Started
+**🎯 Project Goals**
+**Multi-Provider Integration:** Successfully implemented API connections for Google Gemini, OpenAI, and Anthropic.
 
-First, run the development server:
+**Performance Metrics:** Built an understanding of latency (response times) across different models.
 
-```bash
+**Token Analysis:** Monitoring Input vs. Output token usage to evaluate cost-efficiency and context window management.
+
+**Prompt Engineering:** Developing prompts that maintain consistency across different model architectures.
+
+**🛠️ Local Setup Instructions**
+Since sensitive configuration files and heavy dependencies are not tracked in this repository, follow these steps to get the project running on your machine.
+
+**1. Clone the Repository**
+
+git clone https://github.com/poojaghera/playground.git
+cd playground/ai-trip-planner
+
+**2. Install Dependencies**
+This project requires Node.js. Run the following command to install the necessary libraries (this recreates the node_modules folder):
+
+npm install (you would need instructions specific to your machine/OS) 
+
+**3. Configure Environment Variables (Crucial)**
+You must create a local environment file to store your API keys.
+
+In the root of the ai-trip-planner folder, create a new file named .env.
+
+Paste the following template into that file and add your personal API keys:
+
+Code snippet
+
+cat > .env.local << 'EOF' 
+NEXT_PUBLIC_OPENAI_API_KEY= "YOUR KEY"
+NEXT_PUBLIC_GEMINI_API_KEY="YOUR KEY"
+ANTHROPIC_API_KEY="YOUR KEY"
+
+**4. Run the App**
+Start the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**📈 Research Observations**
+API Comparison Logic
+The application is structured to log the following data points for every generation:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Latency**: Time taken from the initial request to the final response. When we added image gen into it. The latency increased further. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Input Tokens:** The cost of the prompt and context sent to the provider.
 
-## Learn More
+**Output Tokens:** The length and complexity of the generated itinerary.
 
-To learn more about Next.js, take a look at the following resources:
+**📂 Project Structure**
+/src: Contains the core logic for API calls and UI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+.gitignore: Specifically configured to exclude .env, node_modules, and Mac system files (.DS_Store).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+package.json: Lists all dependencies required to rebuild the environment.
