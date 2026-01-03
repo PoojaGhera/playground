@@ -58,3 +58,51 @@ The application is structured to log the following data points for every generat
 .gitignore: Specifically configured to exclude .env, node_modules, and Mac system files (.DS_Store).
 
 package.json: Lists all dependencies required to rebuild the environment.
+
+******Initial prompt used (sort of PXD) ******
+
+Build a simple web app which is the home page for a trip planner app. 
+Context:
+- Language: TypeScript
+- Runtime: Node.js 18+
+- Framework: Next.js (App Router)
+- Goal: Beginner-friendly, minimal, runnable
+- Do not use Python or Express
+
+
+
+UI: The app has a simple text box which has a header that says : Tell us more about your travel request?
+It has a go button and once the button is pressed based upon user input output is generated. 
+
+Output is generated side by side. Output 1 uses Anthropic APIs, Output 2 uses Open AI APIs, and Output 3 uses Gemini API.
+
+Each of the Output panel showing the structured Trip Brief from each of the providers
+Name of destination = which has been extracted from the input provided by the user and a brief detail about the destination such as what this place is famous for
+10 most popular spots in that destination 
+Whether it is kid friendly of not
+Best time of year to visit 
+Each panel should show - 
+Metrics panel showing:
+  - latencyMs
+  - inputTokens (exact if provider returns usage, otherwise estimate and label as "estimated")
+  - outputTokens (same rule)
+  - provider + model used
+Also good, better, best button in the end of responses so users can select which is the best response
+
+
+UI elements : Keep the ui clean but modern looking like in apple products. 
+
+
+The user should provide info about the destination, how many people they are travelling with, what age group are the people. If this info is not provided - prompt the user to provide that info. DO not assume. 
+
+Project requirements:
+- Include README with setup steps, env vars, and 3 suggested test inputs
+- Minimal styling, focus on correctness and clarity
+- Add basic error handling (missing keys, model errors)
+
+
+Also - note that this will go into github, so generate the required files. 
+
+
+
+
